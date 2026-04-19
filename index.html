@@ -34,7 +34,7 @@
             border-color: rgba(255, 255, 255, 0.12);
         }
 
-        /* 'D' harfi kesilmesin diye güvenli padding */
+        /* 'D' harfi kesilmesin diye güvenli padding ve parlak renkler */
         .text-gradient {
             background: linear-gradient(to right, #ffffff 0%, #ffffff 85%, #f0f0f0 100%);
             -webkit-background-clip: text;
@@ -105,7 +105,7 @@
             display: block;
         }
 
-        /* Minimalist Slid Butonları */
+        /* Pro Slider Okları */
         .arrow-btn {
             background: rgba(255,255,255,0.03);
             backdrop-filter: blur(10px);
@@ -128,7 +128,6 @@
             transform: scale(1.15);
         }
 
-        /* iPhone Slider Wrapper için buton hizalaması */
         .iphone-slider-wrapper {
             position: relative;
             display: flex;
@@ -175,18 +174,6 @@
             margin-right: 12px;
             font-size: 10px;
         }
-
-        .dynamic-island {
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 110px;
-            height: 34px;
-            background: #000;
-            border-radius: 20px;
-            z-index: 35;
-        }
     </style>
 </head>
 <body>
@@ -228,10 +215,10 @@
             </div>
         </div>
 
-        <!-- iPad Slider Area - Sadece deponuzdaki dosyalar (3, 4, 9 sildi) -->
+        <!-- iPad Slider Area -->
         <div id="showcase" class="w-full max-w-6xl mx-auto flex items-center justify-center gap-6 pb-16">
             <button onclick="moveSlider('ipad', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="ipad-frame">
+            <div class="ipad-frame shadow-2xl">
                 <div id="ipad-slider" class="screen-content">
                     <img src="1 FuseVoid ipad.png" alt="iPad Interface 1">
                     <img src="2 FuseVoid ipad.png" alt="iPad Interface 2">
@@ -246,14 +233,14 @@
         <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-700 mb-20 italic">Designed for high-fidelity M3/M4/M5 Silicon Displays</p>
     </section>
 
-    <!-- iPhone Slider Section - Sadece deponuzdaki dosyalar (2, 3, 8 sildi) -->
+    <!-- iPhone Slider Section - Çentik kaldırıldı, geçişler düzeltildi -->
     <section class="py-32 bg-black flex flex-col items-center border-t border-white/5">
         <h2 class="text-3xl font-black italic uppercase tracking-tighter mb-16 text-center text-gradient">Universal iPhone Experience (iOS 17.6+)</h2>
         
         <div class="iphone-slider-wrapper">
             <button onclick="moveSlider('iphone', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="iphone-frame">
-                <div class="dynamic-island"></div>
+            <div class="iphone-frame shadow-2xl">
+                <!-- Fazladan çentik kaldırıldı -->
                 <div id="iphone-slider" class="screen-content">
                     <img src="1iphone.png" alt="iPhone Interface 1">
                     <img src="4iphone.png" alt="iPhone Interface 4">
@@ -271,7 +258,6 @@
     <section id="features" class="py-32 bg-black flex flex-col items-center px-6 border-t border-white/5">
         <h2 class="text-gray-600 text-[10px] font-black uppercase tracking-[0.6em] mb-12 italic">Performance & Workflow</h2>
         
-        <!-- Video Fix: 1. saniyeden başlama -->
         <div class="video-container mb-32">
             <video controls preload="metadata" class="w-full h-full" poster="Ekran Resmi 2026-04-19 21.27.50.png">
                 <source src="fuse void video .mp4#t=1" type="video/mp4">
@@ -279,7 +265,7 @@
             </video>
         </div>
 
-        <!-- Spec Sheet -->
+        <!-- Professional Spec Sheet -->
         <div class="w-full max-w-5xl">
             <div class="mb-16 border-l-4 border-blue-600 pl-8">
                 <h3 class="text-4xl font-black italic uppercase tracking-tighter text-gradient">FUSE VOID MK1 — CORE SPECS</h3>
@@ -366,7 +352,6 @@
     <script>
         let ipadIdx = 0;
         let iphoneIdx = 0;
-        // Güncel dosya sayıları: iPad (6), iPhone (5)
         const totalIpad = 6; 
         const totalIphone = 5;
 
