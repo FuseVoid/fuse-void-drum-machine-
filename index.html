@@ -29,23 +29,18 @@
             transition: all 0.3s ease;
         }
 
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
         .text-gradient {
             background: linear-gradient(to right, #ffffff 0%, #ffffff 85%, #f0f0f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            padding-right: 0.6em; /* 'D' harfi kesilmesin diye daha güvenli boşluk */
+            padding-right: 0.6em; 
             filter: drop-shadow(0 0 20px rgba(255,255,255,0.05));
             display: inline-block;
             overflow: visible;
         }
 
         nav {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: saturate(180%) blur(20px);
         }
 
@@ -65,25 +60,26 @@
             width: 100%;
             max-width: 850px;
             aspect-ratio: 4/3;
-            background: #111;
-            border-radius: 2.5rem;
-            padding: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+            border-radius: 2.8rem;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 1);
         }
 
+        /* iPhone Frame - Dikey Profesyonel Kasa */
         .iphone-frame {
-            width: 300px;
-            height: 600px;
-            background: #111;
-            border-radius: 3.5rem;
-            padding: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            width: 310px;
+            height: 640px;
+            background: #000;
+            border-radius: 3.8rem;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 1);
         }
 
         .screen-content {
@@ -92,7 +88,7 @@
             background: #000;
             border-radius: inherit;
             display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform;
         }
 
@@ -104,22 +100,36 @@
             display: block;
         }
 
+        /* Minimal Slider Buttons */
         .arrow-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.08);
             color: white;
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 10;
-            transition: all 0.2s;
+            z-index: 30;
+            transition: all 0.3s;
         }
 
-        .arrow-btn:hover { background: rgba(255,255,255,0.2); }
+        .arrow-btn:hover { 
+            background: rgba(255,255,255,0.1); 
+            border-color: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+        /* iPhone specific arrows - integrated into layout */
+        .iphone-slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
         .video-container {
             width: 100%;
@@ -128,60 +138,96 @@
             background: #000;
             border-radius: 2.5rem;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 80px rgba(0,0,0,1);
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 0 100px rgba(0,0,0,1);
         }
 
-        /* Mono typography for feature list */
+        /* Technical specs styling */
+        .feature-category {
+            font-family: 'JetBrains Mono', monospace;
+            color: #3b82f6;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
         .feature-item {
             font-family: 'JetBrains Mono', monospace;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 10px 0;
             font-size: 13px;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item::before {
+            content: ">>";
+            color: #444;
+            margin-right: 12px;
+            font-size: 10px;
+        }
+
+        .dynamic-island {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 34px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 35;
         }
     </style>
 </head>
 <body>
 
     <!-- Header -->
-    <nav class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center border-b border-white/5">
-        <div class="flex items-center gap-3 text-xl font-black italic tracking-tighter uppercase">
-            <img src="logofuse2.png" alt="Fuse Void Logo" class="h-8 w-auto">
+    <nav class="fixed w-full z-50 px-6 md:px-12 py-7 flex justify-between items-center border-b border-white/5">
+        <div class="flex items-center gap-4 text-xl font-black italic tracking-tighter uppercase">
+            <img src="logofuse2.png" alt="Fuse Void Logo" class="h-9 w-auto">
             FUSE VOID
         </div>
-        <div class="hidden md:flex space-x-10">
+        <div class="hidden md:flex space-x-12">
             <a href="#showcase" class="nav-link">Showcase</a>
-            <a href="#features" class="nav-link">Features</a>
-            <a href="#specs" class="nav-link">Specs</a>
+            <a href="#features" class="nav-link">MK1 Specs</a>
+            <a href="#privacy" class="nav-link">Privacy</a>
         </div>
-        <a href="mailto:fusevoidmusic@gmail.com" class="bg-white text-black text-[10px] px-5 py-2.5 rounded-full font-black uppercase tracking-widest hover:opacity-80 transition">Get Support</a>
+        <a href="mailto:fusevoidmusic@gmail.com" class="bg-white text-black text-[10px] px-6 py-3 rounded-full font-black uppercase tracking-widest hover:opacity-80 transition">Get Support</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex flex-col items-center justify-center pt-32 hero-gradient px-6">
-        <div class="max-w-4xl z-10 text-center mb-20">
-            <span class="text-blue-500 text-[10px] font-black tracking-[0.4em] uppercase mb-8 block italic">Next-Gen Audio Production</span>
-            <div class="flex items-center justify-center gap-4 md:gap-8 mb-8">
-                <img src="logofuse2.png" alt="Fuse Void Emblem" class="h-16 md:h-24 w-auto drop-shadow-2xl">
+        <div class="max-w-4xl z-10 text-center mb-24">
+            <span class="text-blue-500 text-[10px] font-black tracking-[0.5em] uppercase mb-10 block italic">Next-Gen Audio Production</span>
+            
+            <div class="flex items-center justify-center gap-6 md:gap-10 mb-10">
+                <img src="logofuse2.png" alt="Fuse Void Emblem" class="h-16 md:h-28 w-auto drop-shadow-2xl">
                 <h1 class="text-6xl md:text-9xl font-black tracking-tighter text-gradient italic uppercase leading-none">FUSE VOID</h1>
             </div>
-            <p class="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                Unleash your creativity with the most powerful drum machine and matrix sequencer. Optimized for professional workflows and zero-latency performance.
+
+            <p class="text-gray-400 text-lg md:text-xl mb-14 max-w-2xl mx-auto font-light leading-relaxed">
+                Experience the most powerful drum machine and matrix sequencer for iPad and iPhone. Optimized for zero-latency performance.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#" class="bg-white text-black px-10 py-5 rounded-2xl flex items-center gap-4 font-black uppercase tracking-tight text-sm hover:scale-105 transition shadow-2xl">
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#" class="bg-white text-black px-12 py-5 rounded-2xl flex items-center gap-4 font-black uppercase tracking-tight text-sm hover:scale-105 transition shadow-2xl">
                     <i class="fab fa-apple text-2xl"></i> App Store
                 </a>
-                <a href="mailto:fusevoidmusic@gmail.com" class="bg-white/5 border border-white/10 px-10 py-5 rounded-2xl font-bold uppercase tracking-tight text-sm hover:bg-white/10 transition">
+                <a href="mailto:fusevoidmusic@gmail.com" class="bg-white/5 border border-white/10 px-12 py-5 rounded-2xl font-bold uppercase tracking-tight text-sm hover:bg-white/10 transition">
                     Contact Us
                 </a>
             </div>
         </div>
 
         <!-- iPad Slider Area -->
-        <div id="showcase" class="w-full max-w-6xl mx-auto flex items-center justify-center gap-4 pb-12">
+        <div id="showcase" class="w-full max-w-6xl mx-auto flex items-center justify-center gap-6 pb-16">
             <button onclick="moveSlider('ipad', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="ipad-frame shadow-2xl">
+            <div class="ipad-frame">
                 <div id="ipad-slider" class="screen-content">
                     <img src="1 FuseVoid ipad.png" alt="iPad Screen 1">
                     <img src="2 FuseVoid ipad.png" alt="iPad Screen 2">
@@ -196,15 +242,17 @@
             </div>
             <button onclick="moveSlider('ipad', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-600 mb-20 italic text-center">Optimized for iPad Pro M3/M4/M5 High-Fidelity Displays</p>
+        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-700 mb-20 italic">Designed for high-fidelity M3/M4/M5 Silicon Displays</p>
     </section>
 
     <!-- iPhone Slider Section -->
-    <section class="py-24 bg-black flex flex-col items-center">
-        <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-12 text-center text-gradient">Universal iPhone Experience (iOS 17.6+)</h2>
-        <div class="slider-container gap-8 px-6">
+    <section class="py-32 bg-black flex flex-col items-center border-t border-white/5">
+        <h2 class="text-3xl font-black italic uppercase tracking-tighter mb-16 text-center text-gradient">Universal iPhone Experience (iOS 17.6+)</h2>
+        
+        <div class="iphone-slider-wrapper">
             <button onclick="moveSlider('iphone', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="iphone-frame shadow-2xl">
+            <div class="iphone-frame">
+                <div class="dynamic-island"></div>
                 <div id="iphone-slider" class="screen-content">
                     <img src="1iphone.png" alt="iPhone Screen 1">
                     <img src="2iphone.png" alt="iPhone Screen 2">
@@ -218,98 +266,101 @@
             </div>
             <button onclick="moveSlider('iphone', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
+        <p class="mt-12 text-gray-600 text-[9px] font-bold uppercase tracking-[0.6em] italic opacity-50">Precision Mobile Performance</p>
     </section>
 
-    <!-- Video & Detailed Features Section -->
+    <!-- Detailed Features & Video -->
     <section id="features" class="py-32 bg-black flex flex-col items-center px-6 border-t border-white/5">
-        <h2 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em] mb-12 italic">Experience the Matrix Engine</h2>
-        <div class="video-container mb-24">
-            <video controls class="w-full h-full" poster="Ekran Resmi 2026-04-19 21.27.50.png">
-                <source src="fuse void video .mp4" type="video/mp4">
+        <h2 class="text-gray-600 text-[10px] font-black uppercase tracking-[0.6em] mb-12 italic">Performance & Workflow</h2>
+        
+        <!-- Video with #t=1 seek time to avoid initial black screen -->
+        <div class="video-container mb-32">
+            <video controls preload="metadata" class="w-full h-full" poster="Ekran Resmi 2026-04-19 21.27.50.png">
+                <source src="fuse void video .mp4#t=1" type="video/mp4">
+                Your browser does not support the video tag.
             </video>
         </div>
 
-        <!-- Professional Feature List -->
-        <div class="w-full max-w-4xl">
-            <div class="mb-12">
-                <h3 class="text-3xl font-black italic uppercase tracking-tighter text-gradient">FUSE VOID MK1 — FEATURES</h3>
-                <p class="text-gray-500 text-xs mt-2 font-bold uppercase tracking-widest">Version 1.0 Production Logs</p>
+        <!-- Professional Spec Sheet -->
+        <div class="w-full max-w-5xl">
+            <div class="mb-16 border-l-4 border-blue-600 pl-8">
+                <h3 class="text-4xl font-black italic uppercase tracking-tighter text-gradient">FUSE VOID MK1 — CORE SPECS</h3>
+                <p class="text-gray-500 text-[11px] mt-3 font-bold uppercase tracking-[0.4em]">Integrated Hardware Emulation System</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-x-16 gap-y-2">
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>113 high-quality one-shot drum samples</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>11 channel mixer (Kick to Crash)</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>16-step sequencer (Per-channel)</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>Real-time WRITE mode</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>CHAIN mode (A–H pattern system)</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>126 pattern save/load slots</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>Kit system (A–H Grouping)</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>MATRIX page overview & editing</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>RANDOM pattern/channel generator</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>SWING control for groove shaping</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>ACCENT dynamic emphasis system</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>Real-time FX UNIT (Kaos-style)</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>High, Filter, Feedback, Crush, Pump</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>MIDI Export & Instant Share</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>Live REC (Real-time recording)</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>QUANTUM-VOID visualization</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>Independent Master Echo & Pan</div>
-                <div class="feature-item"><span class="text-blue-500 mr-2">/</span>Intelligent CLEAR & RESET system</div>
+            <div class="grid md:grid-cols-2 gap-x-20 gap-y-1">
+                <div>
+                    <span class="feature-category">Sound & Sequencing</span>
+                    <div class="feature-item">113 high-quality one-shot drum samples</div>
+                    <div class="feature-item">11 channel mixer (Kick to Crash)</div>
+                    <div class="feature-item">16-step professional sequencer</div>
+                    <div class="feature-item">Real-time WRITE & Step Input mode</div>
+                    <div class="feature-item">CHAIN mode (A–H pattern variation)</div>
+                    <div class="feature-item">126 pattern save/load slots</div>
+                    <div class="feature-item">Pattern RANDOM generation engine</div>
+                    <div class="feature-item">QUANTUM-VOID visualization</div>
+                </div>
+                
+                <div>
+                    <span class="feature-category">Dynamics & FX UNIT</span>
+                    <div class="feature-item">Real-time Kaos-style FX integration</div>
+                    <div class="feature-item">Master High, Filter, Feedback processors</div>
+                    <div class="feature-item">Lo-fi Crush & Sidechain Pump FX</div>
+                    <div class="feature-item">Independent Master Echo & Pan controls</div>
+                    <div class="feature-item">SWING & ACCENT groove shaping</div>
+                    <div class="feature-item">MIDI Export & Instant File Sharing</div>
+                    <div class="feature-item">Live Session Recording (REC)</div>
+                    <div class="feature-item">Non-destructive CLEAR & RESET system</div>
+                </div>
             </div>
             
-            <div class="mt-16 text-center">
-                <p class="text-gray-600 text-[10px] uppercase tracking-[0.4em] italic">Built for fast workflow + live performance</p>
+            <div class="mt-20 glass-card p-12 rounded-[2.5rem] border-white/10 text-center">
+                <p class="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs">Optimized for fast workflow + high-pressure live performance</p>
             </div>
         </div>
     </section>
 
     <!-- Tech Specs Summary -->
     <section id="specs" class="py-32 px-6 bg-black border-t border-white/5">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-            <div class="glass-card p-10 rounded-[2.5rem]">
-                <div class="text-blue-500 mb-6"><i class="fas fa-microchip text-2xl"></i></div>
-                <h4 class="text-lg font-black uppercase italic mb-4 tracking-tighter">Native Performance</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Zero-latency engine optimized for iPad Pro M-series and iPhone A-series chips. Built with core audio precision.
-                </p>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="glass-card p-12 rounded-[3rem]">
+                <div class="text-blue-500 mb-8"><i class="fas fa-microchip text-2xl"></i></div>
+                <h4 class="text-xl font-black uppercase italic mb-5 tracking-tighter">Zero Latency</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Built with low-level audio APIs for immediate response. No delay, just rhythm.</p>
             </div>
-            <div class="glass-card p-10 rounded-[2.5rem]">
-                <div class="text-purple-500 mb-6"><i class="fas fa-wave-square text-2xl"></i></div>
-                <h4 class="text-lg font-black uppercase italic mb-4 tracking-tighter">Workflow</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Seamless MIDI Export and real-time recording. Move your ideas from FUSE VOID to any DAW in seconds.
-                </p>
+            <div class="glass-card p-12 rounded-[3rem]">
+                <div class="text-purple-500 mb-8"><i class="fas fa-share-square text-2xl"></i></div>
+                <h4 class="text-xl font-black uppercase italic mb-5 tracking-tighter">Export Ready</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Seamless MIDI export to any DAW. Start on iPad, finish in the studio.</p>
             </div>
-            <div class="glass-card p-10 rounded-[2.5rem]">
-                <div class="text-green-500 mb-6"><i class="fas fa-shield-alt text-2xl"></i></div>
-                <h4 class="text-lg font-black uppercase italic mb-4 tracking-tighter">Privacy First</h4>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    No accounts. No data tracking. All processing happens locally on your device. Your creativity is strictly yours.
-                </p>
+            <div class="glass-card p-12 rounded-[3rem]">
+                <div class="text-green-500 mb-8"><i class="fas fa-lock text-2xl"></i></div>
+                <h4 class="text-xl font-black uppercase italic mb-5 tracking-tighter">Absolute Privacy</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">No tracking. No accounts. Your creative files stay on your device forever.</p>
             </div>
         </div>
     </section>
 
-    <!-- Privacy Policy -->
-    <section id="privacy" class="py-24 bg-zinc-950 px-6 text-center border-t border-white/5">
-        <div class="max-w-3xl mx-auto">
-            <h3 class="text-2xl font-black italic uppercase tracking-tighter mb-6 text-gradient">Privacy Statement</h3>
-            <p class="text-gray-400 leading-relaxed text-sm">
-                Fuse Void is an offline-first professional audio tool. We do not use cookies, collect personal data, or monitor your files. Your projects and samples are stored exclusively on your device's secure local storage.
+    <!-- Privacy Statement -->
+    <section id="privacy" class="py-32 bg-zinc-950 px-6 text-center border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-black italic uppercase tracking-tighter mb-8 text-gradient">Privacy Statement</h3>
+            <p class="text-gray-500 leading-relaxed text-sm max-w-2xl mx-auto">
+                Fuse Void is an offline-first professional application. We do not use tracking cookies, collect personal information, or monitor your musical projects. All data remains local.
             </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-24 text-center border-t border-white/5 bg-black">
-        <div class="flex items-center justify-center gap-3 text-2xl font-black italic tracking-tighter uppercase mb-8 opacity-20">
+    <footer class="py-32 text-center border-t border-white/5 bg-black">
+        <div class="flex items-center justify-center gap-4 text-2xl font-black italic tracking-tighter uppercase mb-10 opacity-30">
             <img src="logofuse2.png" alt="Fuse Void Logo" class="h-10 w-auto grayscale brightness-200">
             FUSE VOID
         </div>
-        <p class="text-gray-500 text-xs mb-8 uppercase tracking-widest font-bold">
-            Contact: <a href="mailto:fusevoidmusic@gmail.com" class="text-white hover:underline lowercase font-normal">fusevoidmusic@gmail.com</a>
+        <p class="text-gray-600 text-xs mb-10 uppercase tracking-[0.3em] font-bold">
+            Support: <a href="mailto:fusevoidmusic@gmail.com" class="text-white hover:underline lowercase font-normal">fusevoidmusic@gmail.com</a>
         </p>
-        <div class="text-[9px] font-bold uppercase tracking-[0.5em] text-gray-800 italic">
+        <div class="text-[9px] font-bold uppercase tracking-[0.6em] text-gray-800 italic">
             © 2026 FUSE VOID MUSIC ENGINE. BEYOND THE VOID.
         </div>
     </footer>
