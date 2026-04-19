@@ -72,11 +72,13 @@
             overflow: hidden;
         }
 
-        .iphone-frame {
-            width: 280px;
-            height: 580px;
+        /* Updated iPhone frame to Landscape */
+        .iphone-landscape-frame {
+            width: 100%;
+            max-width: 650px;
+            aspect-ratio: 19.5/9;
             background: #111;
-            border-radius: 3rem;
+            border-radius: 2.2rem;
             padding: 12px;
             border: 2px solid rgba(255, 255, 255, 0.1);
             position: relative;
@@ -126,6 +128,19 @@
             border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 0 50px rgba(0,0,0,1);
         }
+
+        /* Landscape Phone Island Indicator */
+        .island-landscape {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 60px;
+            background: #000;
+            border-radius: 10px;
+            z-index: 20;
+        }
     </style>
 </head>
 <body>
@@ -160,7 +175,7 @@
         </div>
 
         <!-- iPad Slider Area -->
-        <div id="showcase" class="w-full max-w-6xl mx-auto flex items-center justify-center gap-4 pb-20">
+        <div id="showcase" class="w-full max-w-6xl mx-auto flex items-center justify-center gap-4 pb-12">
             <button onclick="moveSlider('ipad', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
             <div class="ipad-frame shadow-2xl">
                 <div id="ipad-slider" class="screen-content">
@@ -174,12 +189,13 @@
         <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-600 mb-20 italic">Optimized for iPad Pro M4/M5 Ultra-High Resolution Displays</p>
     </section>
 
-    <!-- iPhone Slider Section -->
+    <!-- iPhone Slider Section (Updated to Landscape) -->
     <section class="py-24 bg-black flex flex-col items-center">
-        <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-12 text-center text-gradient">Universal iPhone Experience (iOS 17.6+)</h2>
+        <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-12 text-center text-gradient">Universal Mobile Interface (iOS 17.6+)</h2>
         <div class="slider-container gap-8 px-6">
             <button onclick="moveSlider('iphone', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="iphone-frame shadow-2xl">
+            <div class="iphone-landscape-frame shadow-2xl">
+                <div class="island-landscape"></div>
                 <div id="iphone-slider" class="screen-content">
                     <img src="1iphone.png" alt="iPhone Screen 1">
                     <img src="2iphone.png" alt="iPhone Screen 2">
@@ -188,7 +204,7 @@
             </div>
             <button onclick="moveSlider('iphone', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <p class="mt-8 text-gray-600 text-[9px] font-bold uppercase tracking-[0.6em] italic opacity-50 uppercase">Precision Mobile Performance</p>
+        <p class="mt-8 text-gray-600 text-[9px] font-bold uppercase tracking-[0.6em] italic opacity-50 uppercase">Landscape-Optimized Studio Experience</p>
     </section>
 
     <!-- Video Section -->
