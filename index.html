@@ -78,11 +78,11 @@
             overflow: hidden;
         }
 
-        /* Updated iPhone frame to Landscape */
+        /* Landscape Phone Frame - Adjusted for better fit */
         .iphone-landscape-frame {
             width: 100%;
             max-width: 650px;
-            aspect-ratio: 19.5/9;
+            aspect-ratio: 16/9; /* Standard widescreen for UI screenshots */
             background: #111;
             border-radius: 2.2rem;
             padding: 12px;
@@ -94,7 +94,7 @@
         .screen-content {
             width: 100%;
             height: 100%;
-            background: #050505;
+            background: #000;
             border-radius: inherit;
             display: flex;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,7 +103,9 @@
         .screen-content img {
             min-width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed from 'cover' to prevent distortion/cropping */
+            display: block;
+            background: #000;
         }
 
         .arrow-btn {
@@ -135,17 +137,18 @@
             box-shadow: 0 0 50px rgba(0,0,0,1);
         }
 
-        /* Landscape Phone Island Indicator */
+        /* Island Indicator */
         .island-landscape {
             position: absolute;
             top: 50%;
             left: 15px;
             transform: translateY(-50%);
-            width: 8px;
-            height: 60px;
+            width: 6px;
+            height: 50px;
             background: #000;
             border-radius: 10px;
             z-index: 20;
+            opacity: 0.5;
         }
     </style>
 </head>
@@ -201,7 +204,7 @@
         <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-600 mb-20 italic">Optimized for iPad Pro M4/M5 Ultra-High Resolution Displays</p>
     </section>
 
-    <!-- iPhone Slider Section (Updated to Landscape) -->
+    <!-- iPhone Slider Section (Landscape Mode) -->
     <section class="py-24 bg-black flex flex-col items-center">
         <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-12 text-center text-gradient">Universal Mobile Interface (iOS 17.6+)</h2>
         <div class="slider-container gap-8 px-6">
@@ -236,7 +239,7 @@
         <p class="mt-8 text-gray-400 font-medium italic">Master your rhythms in seconds with the Native Matrix Engine.</p>
     </section>
 
-    <!-- Tech Specs / 3 Box Section -->
+    <!-- Tech Specs Section -->
     <section id="specs" class="py-32 px-6 bg-black border-t border-white/5">
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
             <!-- Box 1 -->
