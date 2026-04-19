@@ -58,8 +58,28 @@
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        .ipad-ratio {
-            aspect-ratio: 4 / 3;
+        .ipad-frame {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 2.5rem;
+            padding: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ipad-screen {
+            border-radius: 1.8rem;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ipad-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -94,12 +114,12 @@
             </div>
         </div>
 
-        <!-- iPad Pro M5 Öne Çıkan Mockup -->
-        <div class="mt-20 mockup-float w-full max-w-5xl px-4 pb-20">
-            <div class="glass-card p-3 rounded-[3.5rem] shadow-2xl overflow-hidden border-white/10">
-                <!-- Dosya adı teyit edildi: Ekran Resmi 2026-04-19 19.38.49.png -->
-                <div class="bg-zinc-900 rounded-[2.8rem] ipad-ratio flex items-center justify-center bg-cover bg-center shadow-inner" 
-                     style="background-image: url('Ekran Resmi 2026-04-19 19.38.49.png')">
+        <!-- iPad Pro Mockup -->
+        <div class="mt-20 mockup-float w-full max-w-4xl px-4 pb-20">
+            <div class="ipad-frame">
+                <div class="ipad-screen">
+                    <!-- Görsel yükleme hatasını önlemek için img etiketi kullanıldı -->
+                    <img src="Ekran Resmi 2026-04-19 19.38.49.png" alt="Fuse Void Interface" onerror="this.src='https://via.placeholder.com/1200x900/111/fff?text=Fuse+Void+Preview'">
                 </div>
             </div>
             <p class="text-center text-gray-600 text-[10px] mt-8 uppercase tracking-[0.4em] font-bold italic opacity-60">iPad Pro M4/M5 Yüksek Çözünürlüklü Ekranı İçin Optimize Edildi</p>
