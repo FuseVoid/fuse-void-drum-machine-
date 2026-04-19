@@ -74,6 +74,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 400px;
         }
 
         .ipad-screen img {
@@ -118,8 +119,8 @@
         <div class="mt-20 mockup-float w-full max-w-4xl px-4 pb-20">
             <div class="ipad-frame">
                 <div class="ipad-screen">
-                    <!-- Görsel yükleme hatasını önlemek için img etiketi kullanıldı -->
-                    <img src="Ekran Resmi 2026-04-19 19.38.49.png" alt="Fuse Void Interface" onerror="this.src='https://via.placeholder.com/1200x900/111/fff?text=Fuse+Void+Preview'">
+                    <!-- Görsel yüklenemezse sayfayı kilitli tutmaması için placeholder eklendi -->
+                    <img src="Ekran Resmi 2026-04-19 19.38.49.png" alt="Fuse Void Interface" onerror="this.src='https://via.placeholder.com/1200x900/111/fff?text=Fuse+Void+Music+Production'">
                 </div>
             </div>
             <p class="text-center text-gray-600 text-[10px] mt-8 uppercase tracking-[0.4em] font-bold italic opacity-60">iPad Pro M4/M5 Yüksek Çözünürlüklü Ekranı İçin Optimize Edildi</p>
