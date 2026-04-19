@@ -15,6 +15,7 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .hero-gradient {
@@ -28,19 +29,12 @@
             transition: all 0.3s ease;
         }
 
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
         .text-gradient {
             background: linear-gradient(135deg, #fff 0%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Nav Layout */
         nav {
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: saturate(180%) blur(20px);
@@ -55,172 +49,196 @@
             transition: color 0.2s;
         }
 
-        .nav-link:hover {
-            color: #fff;
-        }
+        .nav-link:hover { color: #fff; }
 
-        /* Device Showcase */
-        .device-showcase {
+        /* Slider Styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 2rem;
-            width: 100%;
-            padding: 4rem 2rem;
-            flex-wrap: wrap;
         }
 
         .ipad-frame {
-            position: relative;
             width: 100%;
-            max-width: 650px;
+            max-width: 800px;
             aspect-ratio: 4/3;
             background: #111;
-            border-radius: 2rem;
-            padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8);
+            border-radius: 2.5rem;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .iphone-frame {
-            position: relative;
-            width: 260px;
-            height: 520px;
+            width: 280px;
+            height: 580px;
             background: #111;
-            border-radius: 2.5rem;
-            padding: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8);
+            border-radius: 3rem;
+            padding: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .screen {
+        .screen-content {
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            background: #000;
+            background: #050505;
+            border-radius: inherit;
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .ipad-screen { border-radius: 1.2rem; }
-        .iphone-screen { border-radius: 1.8rem; }
-
-        .screen img {
-            width: 100%;
+        .screen-content img {
+            min-width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .app-store-btn {
-            background: #fff;
-            color: #000;
-            padding: 14px 32px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            transition: transform 0.2s;
-        }
-
-        .app-store-btn:hover {
-            transform: scale(1.02);
-        }
-
-        .secondary-btn {
+        .arrow-btn {
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 14px 32px;
-            border-radius: 12px;
-            font-weight: 700;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
             transition: all 0.2s;
         }
 
-        .secondary-btn:hover {
-            background: rgba(255,255,255,0.1);
-        }
+        .arrow-btn:hover { background: rgba(255,255,255,0.2); }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+        /* Video Container */
+        .video-container {
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 50px rgba(0,0,0,1);
         }
-        .float { animation: float 6s ease-in-out infinite; }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
+    <!-- Header -->
     <nav class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center border-b border-white/5">
         <div class="text-xl font-black italic tracking-tighter uppercase">FUSE VOID</div>
-        
         <div class="hidden md:flex space-x-10">
-            <a href="#features" class="nav-link">Features</a>
+            <a href="#showcase" class="nav-link">Showcase</a>
+            <a href="#specs" class="nav-link">Specs</a>
             <a href="#privacy" class="nav-link">Privacy</a>
-            <a href="mailto:fusevoidmusic@gmail.com" class="nav-link">Contact</a>
         </div>
-
-        <a href="#" class="bg-white text-black text-[10px] px-5 py-2.5 rounded-full font-black uppercase tracking-widest hover:opacity-80 transition">Get Support</a>
+        <a href="mailto:fusevoidmusic@gmail.com" class="bg-white text-black text-[10px] px-5 py-2.5 rounded-full font-black uppercase tracking-widest hover:opacity-80 transition">Get Support</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex flex-col items-center justify-center pt-32 hero-gradient px-6">
         <div class="max-w-4xl z-10 text-center mb-16">
             <span class="text-blue-500 text-[10px] font-black tracking-[0.4em] uppercase mb-6 block italic">Next-Gen Audio Production</span>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter text-gradient italic uppercase">FUSE VOID</h1>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter text-gradient italic uppercase leading-none">FUSE VOID</h1>
             <p class="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                 Unleash your creativity with the most powerful drum machine and matrix sequencer. Optimized for professional workflows and zero-latency performance.
             </p>
-            
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#" class="app-store-btn">
-                    <i class="fab fa-apple text-xl"></i>
-                    <span class="uppercase tracking-tight text-sm">App Store</span>
+                <a href="#" class="bg-white text-black px-8 py-4 rounded-xl flex items-center gap-3 font-black uppercase tracking-tight text-sm hover:scale-105 transition">
+                    <i class="fab fa-apple text-xl"></i> App Store
                 </a>
-                <a href="mailto:fusevoidmusic@gmail.com" class="secondary-btn uppercase text-sm tracking-tight">
+                <a href="mailto:fusevoidmusic@gmail.com" class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl font-bold uppercase tracking-tight text-sm hover:bg-white/10 transition">
                     Contact Us
                 </a>
             </div>
         </div>
 
-        <!-- Visual Content -->
-        <div class="device-showcase max-w-6xl mx-auto w-full pb-20">
-            <div class="ipad-frame float">
-                <div class="screen ipad-screen">
-                    <!-- Placeholder for iPad Screen -->
-                    <img src="Ekran Resmi 2026-04-19 20.22.47.jpg" alt="Fuse Void iPad Interface">
+        <!-- iPad Slider Area -->
+        <div id="showcase" class="w-full max-w-6xl mx-auto flex items-center justify-center gap-4 pb-20">
+            <button onclick="moveSlider('ipad', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="ipad-frame shadow-2xl">
+                <div id="ipad-slider" class="screen-content">
+                    <img src="1 FuseVoid ipad.png" alt="iPad Screen 1">
+                    <img src="2 FuseVoid ipad.png" alt="iPad Screen 2">
+                    <img src="3 FuseVoid ipad.png" alt="iPad Screen 3">
                 </div>
             </div>
+            <button onclick="moveSlider('ipad', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
-        
-        <div class="pb-10">
-            <p class="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-600">Optimized for iPad Pro M4/M5 Ultra-High Resolution Displays</p>
+        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-600 mb-20">Optimized for iPad Pro M4/M5 Ultra-High Resolution Displays</p>
+    </section>
+
+    <!-- iPhone Slider Section -->
+    <section class="py-20 bg-black flex flex-col items-center">
+        <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-12 text-center">Perfect Interface for iPhone 17 Pro Max</h2>
+        <div class="slider-container gap-8">
+            <button onclick="moveSlider('iphone', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="iphone-frame shadow-2xl">
+                <div id="iphone-slider" class="screen-content">
+                    <img src="1iphone.png" alt="iPhone Screen 1">
+                    <img src="2iphone.png" alt="iPhone Screen 2">
+                    <img src="3iphone.png" alt="iPhone Screen 3">
+                </div>
+            </div>
+            <button onclick="moveSlider('iphone', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <!-- Features & Privacy -->
-    <section id="features" class="py-32 px-6 bg-black">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-            
-            <!-- Privacy Block -->
-            <div id="privacy" class="glass-card p-12 rounded-[2.5rem]">
-                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8">
-                    <i class="fas fa-fingerprint text-white"></i>
-                </div>
-                <h3 class="text-2xl font-black mb-4 uppercase italic tracking-tighter">Zero Data Tracking</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">
-                    Your music is your business. Fuse Void operates entirely offline for core functions and <strong>does not track, collect, or share</strong> any of your personal data or project files. We believe in creative freedom without surveillance.
+    <!-- Video Section -->
+    <section class="py-32 bg-black flex flex-col items-center px-6">
+        <h2 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em] mb-12">Experience the Matrix Engine</h2>
+        <div class="video-container">
+            <video controls class="w-full h-full" poster="Ekran Resmi 2026-04-19 21.27.50.png">
+                <source src="fuse void video .mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <p class="mt-8 text-gray-500 font-medium">Create professional beats in seconds with the Matrix Engine.</p>
+    </section>
+
+    <!-- Tech Specs / 3 Box Section -->
+    <section id="specs" class="py-32 px-6 bg-black">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+            <!-- Box 1 -->
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="text-blue-500 mb-6"><i class="fas fa-microchip text-2xl"></i></div>
+                <h4 class="text-lg font-black uppercase italic mb-4">Compatibility</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Native support for iOS 17.6 and higher. Optimized for M1, M2, M4, and M5 chips with ultra-low latency response.
                 </p>
             </div>
-
-            <!-- Performance Block -->
-            <div class="glass-card p-12 rounded-[2.5rem]">
-                <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-8">
-                    <i class="fas fa-bolt text-white"></i>
-                </div>
-                <h3 class="text-2xl font-black mb-4 uppercase italic tracking-tighter">Native Performance</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">
-                    Built with Apple's latest silicon in mind. Experience seamless 16-track sequencing with advanced modulation matrix and real-time effects processing.
+            <!-- Box 2 -->
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="text-purple-500 mb-6"><i class="fas fa-engine text-2xl"></i></div>
+                <h4 class="text-lg font-black uppercase italic mb-4">Engine Tech</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    16-track Step Sequencer, advanced Grain Synthesizer, and integrated XY modulation matrix for infinite sound design.
                 </p>
             </div>
+            <!-- Box 3 -->
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="text-green-500 mb-6"><i class="fas fa-shield-alt text-2xl"></i></div>
+                <h4 class="text-lg font-black uppercase italic mb-4">Zero Tracking</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    No account required. No data collection. Your projects stay on your device. Privacy by design for creators.
+                </p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Privacy Section -->
+    <section id="privacy" class="py-20 bg-zinc-950 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-3xl font-black italic uppercase tracking-tighter mb-6">Privacy Policy</h3>
+            <p class="text-gray-400 leading-relaxed">
+                Fuse Void is an offline-first professional audio tool. We do not use cookies for tracking, we do not collect personal data, and we do not have access to your audio files. All processing happens locally on your Apple Silicon chip.
+            </p>
         </div>
     </section>
 
@@ -228,12 +246,29 @@
     <footer class="py-20 text-center border-t border-white/5">
         <div class="text-lg font-black italic tracking-tighter uppercase mb-6 opacity-30">FUSE VOID</div>
         <p class="text-gray-500 text-xs mb-8 uppercase tracking-widest font-bold">
-            Support: <a href="mailto:fusevoidmusic@gmail.com" class="text-white hover:underline">fusevoidmusic@gmail.com</a>
+            Support & Inquiry: <a href="mailto:fusevoidmusic@gmail.com" class="text-white hover:underline">fusevoidmusic@gmail.com</a>
         </p>
         <div class="text-[9px] font-bold uppercase tracking-[0.5em] text-gray-800">
             © 2026 FUSE VOID MUSIC ENGINE. ALL RIGHTS RESERVED.
         </div>
     </footer>
+
+    <script>
+        let ipadIdx = 0;
+        let iphoneIdx = 0;
+        const totalIpad = 3;
+        const totalIphone = 3;
+
+        function moveSlider(type, dir) {
+            if(type === 'ipad') {
+                ipadIdx = (ipadIdx + dir + totalIpad) % totalIpad;
+                document.getElementById('ipad-slider').style.transform = `translateX(-${ipadIdx * 100}%)`;
+            } else {
+                iphoneIdx = (iphoneIdx + dir + totalIphone) % totalIphone;
+                document.getElementById('iphone-slider').style.transform = `translateX(-${iphoneIdx * 100}%)`;
+            }
+        }
+    </script>
 
 </body>
 </html>
