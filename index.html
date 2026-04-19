@@ -29,6 +29,12 @@
             transition: all 0.3s ease;
         }
 
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        /* 'D' harfi kesilmesin diye güvenli padding */
         .text-gradient {
             background: linear-gradient(to right, #ffffff 0%, #ffffff 85%, #f0f0f0 100%);
             -webkit-background-clip: text;
@@ -69,7 +75,6 @@
             box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 1);
         }
 
-        /* iPhone Frame - Dikey Profesyonel Kasa */
         .iphone-frame {
             width: 310px;
             height: 640px;
@@ -100,35 +105,35 @@
             display: block;
         }
 
-        /* Minimal Slider Buttons */
+        /* Minimalist Slid Butonları */
         .arrow-btn {
             background: rgba(255,255,255,0.03);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 30;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .arrow-btn:hover { 
             background: rgba(255,255,255,0.1); 
-            border-color: rgba(255,255,255,0.2);
-            transform: scale(1.1);
+            border-color: rgba(255,255,255,0.3);
+            transform: scale(1.15);
         }
 
-        /* iPhone specific arrows - integrated into layout */
+        /* iPhone Slider Wrapper için buton hizalaması */
         .iphone-slider-wrapper {
             position: relative;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
         }
 
         .video-container {
@@ -142,7 +147,6 @@
             box-shadow: 0 0 100px rgba(0,0,0,1);
         }
 
-        /* Technical specs styling */
         .feature-category {
             font-family: 'JetBrains Mono', monospace;
             color: #3b82f6;
@@ -224,20 +228,17 @@
             </div>
         </div>
 
-        <!-- iPad Slider Area -->
+        <!-- iPad Slider Area - Sadece deponuzdaki dosyalar -->
         <div id="showcase" class="w-full max-w-6xl mx-auto flex items-center justify-center gap-6 pb-16">
             <button onclick="moveSlider('ipad', -1)" class="arrow-btn"><i class="fas fa-chevron-left"></i></button>
             <div class="ipad-frame">
                 <div id="ipad-slider" class="screen-content">
-                    <img src="1 FuseVoid ipad.png" alt="iPad Screen 1">
-                    <img src="2 FuseVoid ipad.png" alt="iPad Screen 2">
-                    <img src="3 FuseVoid ipad.png" alt="iPad Screen 3">
-                    <img src="4 FuseVoid ipad.png" alt="iPad Screen 4">
-                    <img src="5 FuseVoid ipad.png" alt="iPad Screen 5">
-                    <img src="6 FuseVoid ipad.png" alt="iPad Screen 6">
-                    <img src="7 FuseVoid ipad.png" alt="iPad Screen 7">
-                    <img src="8 FuseVoid ipad.png" alt="iPad Screen 8">
-                    <img src="9 FuseVoid ipad.png" alt="iPad Screen 9">
+                    <img src="1 FuseVoid ipad.png" alt="iPad Interface 1">
+                    <img src="2 FuseVoid ipad.png" alt="iPad Interface 2">
+                    <img src="5 FuseVoid ipad.png" alt="iPad Interface 5">
+                    <img src="6 FuseVoid ipad.png" alt="iPad Interface 6">
+                    <img src="7 FuseVoid ipad.png" alt="iPad Interface 7">
+                    <img src="8 FuseVoid ipad.png" alt="iPad Interface 8">
                 </div>
             </div>
             <button onclick="moveSlider('ipad', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
@@ -245,7 +246,7 @@
         <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-700 mb-20 italic">Designed for high-fidelity M3/M4/M5 Silicon Displays</p>
     </section>
 
-    <!-- iPhone Slider Section -->
+    <!-- iPhone Slider Section - Sadece deponuzdaki dosyalar -->
     <section class="py-32 bg-black flex flex-col items-center border-t border-white/5">
         <h2 class="text-3xl font-black italic uppercase tracking-tighter mb-16 text-center text-gradient">Universal iPhone Experience (iOS 17.6+)</h2>
         
@@ -254,14 +255,12 @@
             <div class="iphone-frame">
                 <div class="dynamic-island"></div>
                 <div id="iphone-slider" class="screen-content">
-                    <img src="1iphone.png" alt="iPhone Screen 1">
-                    <img src="2iphone.png" alt="iPhone Screen 2">
-                    <img src="3iphone.png" alt="iPhone Screen 3">
-                    <img src="4iphone.png" alt="iPhone Screen 4">
-                    <img src="5iphone.png" alt="iPhone Screen 5">
-                    <img src="6iphone.png" alt="iPhone Screen 6">
-                    <img src="7iphone.png" alt="iPhone Screen 7">
-                    <img src="8iphone.png" alt="iPhone Screen 8">
+                    <img src="1iphone.png" alt="iPhone Interface 1">
+                    <img src="4iphone.png" alt="iPhone Interface 4">
+                    <img src="5iphone.png" alt="iPhone Interface 5">
+                    <img src="6iphone.png" alt="iPhone Interface 6">
+                    <img src="7iphone.png" alt="iPhone Interface 7">
+                    <img src="8iphone.png" alt="iPhone Interface 8">
                 </div>
             </div>
             <button onclick="moveSlider('iphone', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
@@ -273,7 +272,7 @@
     <section id="features" class="py-32 bg-black flex flex-col items-center px-6 border-t border-white/5">
         <h2 class="text-gray-600 text-[10px] font-black uppercase tracking-[0.6em] mb-12 italic">Performance & Workflow</h2>
         
-        <!-- Video with #t=1 seek time to avoid initial black screen -->
+        <!-- Video Fix: 1. saniyeden başlama -->
         <div class="video-container mb-32">
             <video controls preload="metadata" class="w-full h-full" poster="Ekran Resmi 2026-04-19 21.27.50.png">
                 <source src="fuse void video .mp4#t=1" type="video/mp4">
@@ -281,7 +280,7 @@
             </video>
         </div>
 
-        <!-- Professional Spec Sheet -->
+        <!-- Spec Sheet -->
         <div class="w-full max-w-5xl">
             <div class="mb-16 border-l-4 border-blue-600 pl-8">
                 <h3 class="text-4xl font-black italic uppercase tracking-tighter text-gradient">FUSE VOID MK1 — CORE SPECS</h3>
@@ -315,7 +314,7 @@
             </div>
             
             <div class="mt-20 glass-card p-12 rounded-[2.5rem] border-white/10 text-center">
-                <p class="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs">Optimized for fast workflow + high-pressure live performance</p>
+                <p class="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs italic">Optimized for fast workflow + high-pressure live performance</p>
             </div>
         </div>
     </section>
@@ -358,7 +357,7 @@
             FUSE VOID
         </div>
         <p class="text-gray-600 text-xs mb-10 uppercase tracking-[0.3em] font-bold">
-            Support: <a href="mailto:fusevoidmusic@gmail.com" class="text-white hover:underline lowercase font-normal">fusevoidmusic@gmail.com</a>
+            Contact: <a href="mailto:fusevoidmusic@gmail.com" class="text-white hover:underline lowercase font-normal">fusevoidmusic@gmail.com</a>
         </p>
         <div class="text-[9px] font-bold uppercase tracking-[0.6em] text-gray-800 italic">
             © 2026 FUSE VOID MUSIC ENGINE. BEYOND THE VOID.
@@ -368,8 +367,9 @@
     <script>
         let ipadIdx = 0;
         let iphoneIdx = 0;
-        const totalIpad = 9;
-        const totalIphone = 8;
+        // Güncel dosya sayıları
+        const totalIpad = 6; 
+        const totalIphone = 6;
 
         function moveSlider(type, dir) {
             if(type === 'ipad') {
