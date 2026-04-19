@@ -29,6 +29,12 @@
             transition: all 0.3s ease;
         }
 
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
         .text-gradient {
             background: linear-gradient(135deg, #fff 0%, #888 100%);
             -webkit-background-clip: text;
@@ -182,6 +188,12 @@
                     <img src="1 FuseVoid ipad.png" alt="iPad Screen 1">
                     <img src="2 FuseVoid ipad.png" alt="iPad Screen 2">
                     <img src="3 FuseVoid ipad.png" alt="iPad Screen 3">
+                    <img src="4 FuseVoid ipad.png" alt="iPad Screen 4">
+                    <img src="5 FuseVoid ipad.png" alt="iPad Screen 5">
+                    <img src="6 FuseVoid ipad.png" alt="iPad Screen 6">
+                    <img src="7 FuseVoid ipad.png" alt="iPad Screen 7">
+                    <img src="8 FuseVoid ipad.png" alt="iPad Screen 8">
+                    <img src="9 FuseVoid ipad.png" alt="iPad Screen 9">
                 </div>
             </div>
             <button onclick="moveSlider('ipad', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
@@ -200,6 +212,11 @@
                     <img src="1iphone.png" alt="iPhone Screen 1">
                     <img src="2iphone.png" alt="iPhone Screen 2">
                     <img src="3iphone.png" alt="iPhone Screen 3">
+                    <img src="4iphone.png" alt="iPhone Screen 4">
+                    <img src="5iphone.png" alt="iPhone Screen 5">
+                    <img src="6iphone.png" alt="iPhone Screen 6">
+                    <img src="7iphone.png" alt="iPhone Screen 7">
+                    <img src="8iphone.png" alt="iPhone Screen 8">
                 </div>
             </div>
             <button onclick="moveSlider('iphone', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
@@ -273,8 +290,8 @@
     <script>
         let ipadIdx = 0;
         let iphoneIdx = 0;
-        const totalIpad = 3;
-        const totalIphone = 3;
+        const totalIpad = 9;
+        const totalIphone = 8;
 
         function moveSlider(type, dir) {
             if(type === 'ipad') {
