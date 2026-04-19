@@ -3,196 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fuse Void | Professional Drum Machine & Music Production</title>
+    <title>Fuse Void | Professional Drum Machine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             background-color: #000;
             color: #fff;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             overflow-x: hidden;
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
         }
 
-        .glass-card:hover {
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            background: linear-gradient(135deg, #fff 0%, #777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .btn-primary {
-            background: #fff;
-            color: #000;
-            transition: all 0.2s;
-        }
-
-        .btn-primary:hover {
-            background: #ccc;
-            transform: scale(1.05);
-        }
-
-        .mockup-float {
-            animation: floating 6s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1.1deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
         .ipad-frame {
             position: relative;
-            background: #1a1a1a;
-            border-radius: 2.5rem;
-            padding: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: #111;
+            border-radius: 3rem;
+            padding: 15px;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .ipad-screen {
-            border-radius: 1.8rem;
+            border-radius: 2.2rem;
             overflow: hidden;
-            background: #000;
+            background: #050505;
+            aspect-ratio: 4/3;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 400px;
         }
 
         .ipad-screen img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
+        }
+
+        .mockup-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-white/5">
-        <div class="text-xl font-black tracking-tighter italic">FUSE VOID</div>
-        <div class="hidden md:flex space-x-8 text-xs font-medium text-gray-400">
-            <a href="#features" class="hover:text-white transition uppercase tracking-widest">Features</a>
-            <a href="#privacy" class="hover:text-white transition uppercase tracking-widest">Privacy</a>
-            <a href="mailto:fusevoidmusic@gmail.com" class="hover:text-white transition uppercase tracking-widest">Contact</a>
+    <!-- Nav -->
+    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center bg-black/40 backdrop-blur-xl">
+        <div class="text-xl font-black italic tracking-tighter uppercase">FUSE VOID</div>
+        <div class="hidden md:flex space-x-10 text-[11px] font-bold tracking-[0.2em] text-gray-400 uppercase">
+            <a href="#features" class="hover:text-white transition">Features</a>
+            <a href="#privacy" class="hover:text-white transition">Privacy</a>
+            <a href="mailto:fusevoidmusic@gmail.com" class="hover:text-white transition">Contact</a>
         </div>
-        <a href="mailto:fusevoidmusic@gmail.com" class="text-[10px] bg-white text-black px-4 py-2 rounded-full font-bold uppercase tracking-wider">Support</a>
+        <a href="mailto:fusevoidmusic@gmail.com" class="bg-white text-black text-[10px] px-5 py-2.5 rounded-full font-black uppercase tracking-widest hover:bg-gray-200 transition">Get Support</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col items-center justify-center pt-24 hero-gradient px-4 text-center">
-        <div class="z-10 max-w-4xl">
-            <span class="text-blue-500 text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block italic">Next-Gen Audio Production</span>
-            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight text-gradient italic uppercase">FUSE VOID</h1>
-            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-                Unleash your creativity with the most powerful drum machine and matrix sequencer. Optimized for professional workflows and zero-latency performance.
+    <!-- Hero -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-32 hero-gradient px-6 text-center">
+        <div class="max-w-4xl z-10">
+            <span class="text-blue-500 text-[10px] font-black tracking-[0.5em] uppercase mb-6 block italic">Next-Gen Audio Production</span>
+            <h1 class="text-6xl md:text-9xl font-black mb-8 tracking-tighter text-gradient italic uppercase">FUSE VOID</h1>
+            <p class="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+                Unleash your creativity with the most powerful drum machine and matrix sequencer. Optimized for professional workflows.
             </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <button class="btn-primary px-10 py-4 rounded-2xl font-bold text-lg flex items-center justify-center uppercase italic shadow-xl shadow-white/10">
-                    <i class="fab fa-apple mr-3 text-xl"></i> App Store
+            
+            <div class="flex flex-col sm:flex-row gap-5 justify-center mb-20">
+                <button class="bg-white text-black px-12 py-5 rounded-2xl font-black text-lg flex items-center justify-center uppercase italic hover:scale-105 transition shadow-2xl shadow-white/5">
+                    <i class="fab fa-apple mr-3 text-2xl"></i> App Store
                 </button>
-                <a href="mailto:fusevoidmusic@gmail.com" class="glass-card px-10 py-4 rounded-2xl font-bold text-lg flex items-center justify-center uppercase italic">
+                <button class="glass-card px-12 py-5 rounded-2xl font-black text-lg flex items-center justify-center uppercase italic hover:bg-white/5 transition">
                     Contact Us
-                </a>
+                </button>
             </div>
         </div>
 
-        <!-- iPad Pro Mockup with fixed image paths from your GitHub -->
-        <div class="mt-20 mockup-float w-full max-w-4xl px-4 pb-20">
+        <!-- iPad Mockup -->
+        <div class="w-full mockup-animation px-4 pb-32">
             <div class="ipad-frame">
                 <div class="ipad-screen">
-                    <!-- GitHub'daki tam dosya ismini kullandım -->
-                    <img src="9 FuseVoid ipad.png" alt="Fuse Void Interface" onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x900/111/fff?text=Fuse+Void+Music+Production';">
+                    <!-- GitHub'daki boşluklu isimleri tarayıcının okuyabileceği %20 formatına çevirdik -->
+                    <img src="9%20FuseVoid%20ipad.png" alt="Fuse Void Pro Interface" 
+                         onerror="this.src='1%20FuseVoid%20ipad.png'; this.onerror=null;">
                 </div>
             </div>
-            <p class="text-center text-gray-600 text-[10px] mt-8 uppercase tracking-[0.4em] font-bold italic opacity-60">Optimized for iPad Pro M4/M5 Ultra-High Resolution Displays</p>
+            <p class="mt-10 text-gray-600 text-[9px] font-bold uppercase tracking-[0.6em] italic opacity-50">High Fidelity Touch Interface for iPad Pro</p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass-card p-10 rounded-3xl border-white/5 text-center">
-                <div class="w-12 h-12 bg-blue-600 rounded-xl mb-6 mx-auto flex items-center justify-center text-xl shadow-lg shadow-blue-500/20">
-                    <i class="fas fa-sliders-h text-white"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4 uppercase italic tracking-tighter">Pro Mixer</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Advanced multi-channel controls with real-time effects and ultra-low latency processing.</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl border-white/5 text-center">
-                <div class="w-12 h-12 bg-purple-600 rounded-xl mb-6 mx-auto flex items-center justify-center text-xl shadow-lg shadow-purple-500/20">
-                    <i class="fas fa-th text-white"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4 uppercase italic tracking-tighter">Matrix Engine</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">Innovative 16-step matrix layout designed to inspire complex beat structures.</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl border-white/5 text-center">
-                <div class="w-12 h-12 bg-pink-600 rounded-xl mb-6 mx-auto flex items-center justify-center text-xl shadow-lg shadow-pink-500/20">
-                    <i class="fas fa-bolt text-white"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4 uppercase italic tracking-tighter">Desktop Grade</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">High performance optimized for Apple M-Series Silicon chips.</p>
-            </div>
+    <!-- Simple Features -->
+    <section id="features" class="py-40 px-6 max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+        <div class="glass-card p-12 rounded-[2.5rem] border-white/5">
+            <i class="fas fa-wave-square text-3xl mb-8 text-blue-500"></i>
+            <h3 class="text-2xl font-black mb-4 uppercase italic tracking-tighter">Engine</h3>
+            <p class="text-gray-500 leading-relaxed font-light">Custom audio engine designed for zero-latency performance on M-series chips.</p>
+        </div>
+        <div class="glass-card p-12 rounded-[2.5rem] border-white/5">
+            <i class="fas fa-layer-group text-3xl mb-8 text-purple-500"></i>
+            <h3 class="text-2xl font-black mb-4 uppercase italic tracking-tighter">Matrix</h3>
+            <p class="text-gray-500 leading-relaxed font-light">Advanced 16-step sequencing matrix with intuitive multi-touch controls.</p>
+        </div>
+        <div class="glass-card p-12 rounded-[2.5rem] border-white/5">
+            <i class="fas fa-microchip text-3xl mb-8 text-pink-500"></i>
+            <h3 class="text-2xl font-black mb-4 uppercase italic tracking-tighter">Silicon</h3>
+            <p class="text-gray-500 leading-relaxed font-light">Deeply integrated with iPadOS for professional studio environments.</p>
         </div>
     </section>
 
-    <!-- Privacy Section -->
-    <section id="privacy" class="py-24 px-6 bg-zinc-950/40">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8 italic uppercase tracking-tighter">Privacy Policy</h2>
-            <div class="glass-card p-10 rounded-3xl text-left border-white/5">
-                <div class="flex items-start mb-6">
-                    <div class="mr-4 mt-1 text-green-500"><i class="fas fa-shield-alt"></i></div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        <strong class="text-white uppercase tracking-tighter block mb-1">No Data Collection:</strong> 
-                        Fuse Void runs entirely locally. We do not collect, store, or share your music or personal data.
-                    </p>
-                </div>
-                <div class="flex items-start mb-6">
-                    <div class="mr-4 mt-1 text-green-500"><i class="fas fa-user-secret"></i></div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        <strong class="text-white uppercase tracking-tighter block mb-1">Total Privacy:</strong> 
-                        No tracking, no analytics, no third-party cookies. Your creativity remains private.
-                    </p>
-                </div>
-                <p class="text-gray-500 text-xs italic pl-8">
-                    Contact for privacy: 
-                    <a href="mailto:fusevoidmusic@gmail.com" class="text-blue-500 font-bold hover:underline transition-all">fusevoidmusic@gmail.com</a>
-                </p>
+    <!-- Privacy -->
+    <section id="privacy" class="py-40 px-6 bg-zinc-950/20">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl font-black mb-12 italic uppercase tracking-tighter">Privacy First</h2>
+            <div class="glass-card p-10 rounded-3xl text-left border-white/5 text-gray-400 space-y-6">
+                <p><strong class="text-white uppercase tracking-widest text-xs">No Data:</strong> We don't collect or store your audio files.</p>
+                <p><strong class="text-white uppercase tracking-widest text-xs">No Cloud:</strong> Everything stays on your iPad.</p>
+                <p><strong class="text-white uppercase tracking-widest text-xs">No Tracking:</strong> No analytics or hidden cookies.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
-            <div>
-                <div class="text-2xl font-black mb-2 italic tracking-tighter">FUSE VOID</div>
-                <p class="text-gray-600 text-[10px] uppercase tracking-widest font-bold">© 2026 Fuse Void Music. All Rights Reserved.</p>
-            </div>
-            <div class="flex flex-col items-center md:items-end">
-                <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-2 font-bold italic">Contact</p>
-                <a href="mailto:fusevoidmusic@gmail.com" class="text-lg font-medium hover:text-white transition-colors tracking-tight">fusevoidmusic@gmail.com</a>
-            </div>
-        </div>
+    <footer class="py-32 px-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 text-gray-600">
+        <div class="text-2xl font-black italic tracking-tighter text-white">FUSE VOID</div>
+        <div class="text-[10px] font-bold uppercase tracking-widest">© 2026 FUSE VOID MUSIC. BEYOND THE VOID.</div>
+        <a href="mailto:fusevoidmusic@gmail.com" class="hover:text-white transition font-bold italic tracking-tight">fusevoidmusic@gmail.com</a>
     </footer>
 
 </body>
