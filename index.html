@@ -35,10 +35,15 @@
             transform: translateY(-5px);
         }
 
+        /* Fixed 'D' clipping: increased padding and adjusted gradient for max visibility */
         .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            background: linear-gradient(to right, #ffffff 0%, #ffffff 80%, #f0f0f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            padding-right: 0.4em; /* Increased padding to prevent italic clipping */
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.05));
+            display: inline-block;
+            overflow: visible; /* Ensure nothing is cut */
         }
 
         nav {
@@ -99,12 +104,14 @@
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Fixed rotation scale to prevent "narrow/cut" look in the frames */
         .screen-content img {
             min-width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             display: block;
             background: #000;
+            transform: rotate(-90deg) scale(1.85); /* Slightly increased scale to fill corners */
         }
 
         .arrow-btn {
@@ -124,7 +131,6 @@
 
         .arrow-btn:hover { background: rgba(255,255,255,0.2); }
 
-        /* Video Container */
         .video-container {
             width: 100%;
             max-width: 900px;
@@ -136,7 +142,6 @@
             box-shadow: 0 0 50px rgba(0,0,0,1);
         }
 
-        /* Island Indicator */
         .island-landscape {
             position: absolute;
             top: 50%;
@@ -172,7 +177,6 @@
         <div class="max-w-4xl z-10 text-center mb-16">
             <span class="text-blue-500 text-[10px] font-black tracking-[0.4em] uppercase mb-6 block italic">Next-Gen Audio Production</span>
             
-            <!-- Logo added before the main Title -->
             <div class="flex items-center justify-center gap-4 md:gap-8 mb-8">
                 <img src="logofuse2.png" alt="Fuse Void Emblem" class="h-16 md:h-24 w-auto drop-shadow-2xl">
                 <h1 class="text-6xl md:text-8xl font-black tracking-tighter text-gradient italic uppercase leading-none">FUSE VOID</h1>
@@ -209,10 +213,10 @@
             </div>
             <button onclick="moveSlider('ipad', 1)" class="arrow-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-600 mb-20 italic">Optimized for iPad Pro M4/M5 Ultra-High Resolution Displays</p>
+        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-600 mb-20 italic text-center">Optimized for iPad Pro M4/M5 Ultra-High Resolution Displays</p>
     </section>
 
-    <!-- iPhone Slider Section (Landscape Mode) -->
+    <!-- iPhone Slider Section -->
     <section class="py-24 bg-black flex flex-col items-center">
         <h2 class="text-2xl font-black italic uppercase tracking-tighter mb-12 text-center text-gradient">Universal Mobile Interface (iOS 17.6+)</h2>
         <div class="slider-container gap-8 px-6">
@@ -244,13 +248,12 @@
                 Your browser does not support the video tag.
             </video>
         </div>
-        <p class="mt-8 text-gray-400 font-medium italic">Master your rhythms in seconds with the Native Matrix Engine.</p>
+        <p class="mt-8 text-gray-400 font-medium italic text-center">Master your rhythms in seconds with the Native Matrix Engine.</p>
     </section>
 
     <!-- Tech Specs Section -->
     <section id="specs" class="py-32 px-6 bg-black border-t border-white/5">
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-            <!-- Box 1 -->
             <div class="glass-card p-10 rounded-[2rem]">
                 <div class="text-blue-500 mb-6"><i class="fas fa-microchip text-2xl"></i></div>
                 <h4 class="text-lg font-black uppercase italic mb-4 tracking-tighter">Universal Support</h4>
@@ -258,7 +261,6 @@
                     Native support for iPhone and iPad devices running iOS 17.6 or later. Perfectly optimized for MacBook M1, M2, and M4/M5 Silicon chips.
                 </p>
             </div>
-            <!-- Box 2 -->
             <div class="glass-card p-10 rounded-[2rem]">
                 <div class="text-purple-500 mb-6"><i class="fas fa-wave-square text-2xl"></i></div>
                 <h4 class="text-lg font-black uppercase italic mb-4 tracking-tighter">Production Suite</h4>
@@ -266,7 +268,6 @@
                     Professional 16-track Step Sequencer, high-fidelity Grain Synthesizer, and integrated XY modulation for advanced sound design.
                 </p>
             </div>
-            <!-- Box 3 -->
             <div class="glass-card p-10 rounded-[2rem]">
                 <div class="text-green-500 mb-6"><i class="fas fa-shield-alt text-2xl"></i></div>
                 <h4 class="text-lg font-black uppercase italic mb-4 tracking-tighter">Privacy First</h4>
